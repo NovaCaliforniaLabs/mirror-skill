@@ -1,0 +1,13 @@
+{
+  "name": "mirror",
+  "version": "1.0.0",
+  "description": "Weekly engineering retrospective. Analyzes commit history, work patterns, and shipping velocity with persistent history and trend tracking.",
+  "author": "NovaCaliforniaLabs",
+  "license": "MIT",
+  "permissions": ["read", "bash"],
+  "entry": "SKILL.md",
+  "tags": ["retrospective", "team", "analytics", "development"],
+  "price": 0,
+  "models": ["*"],
+  "minOpenClawVersion": "0.8.0"
+}
