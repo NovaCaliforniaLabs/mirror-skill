@@ -50,11 +50,27 @@ Engineering teams ship without understanding their own velocity patterns. This s
 - Git repository with origin/main
 - `.context/retros/` directory (auto-created)
 
-## Installation
 
+## One-Click Install
+
+### Option 1: GitHub Release (Recommended)
 ```bash
-openclaw skill install mirror
+curl -L https://github.com/NovaCaliforniaLabs/mirror-skill/releases/latest/download/mirror-skill.zip -o mirror.zip
+unzip mirror.zip -d ~/.openclaw/workspace/skills/
+rm mirror.zip
 ```
+
+### Option 2: ClawMart Download
+After purchase on shopclawmart.com, download the package and extract to ~/.openclaw/workspace/skills/
+
+## Quality Checklist
+- ✅ SKILL.md complete with usage docs
+- ✅ All scripts functional (bin/*.sh)
+- ✅ Templates included (templates/)
+- ✅ Examples provided (examples/)
+- ✅ Attribution verified
+- ✅ Tested on macOS Apple Silicon
+
 
 ## Pricing
 
