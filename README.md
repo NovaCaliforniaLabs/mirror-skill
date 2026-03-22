@@ -1,81 +1,117 @@
-# mirror
+# Mirror 🪞
 
-Weekly engineering retrospective analyzing commit history, work patterns, and shipping velocity with persistent history and trend tracking.
+**Weekly engineering retro for AI agents — git commits → velocity insights → trend tracking**
 
-## What It Does
-
-This skill runs parallel git queries to gather commits, LOC stats, timestamps, hotspots, and PR numbers. It computes velocity metrics, detects work sessions (45-min gap threshold), classifies session depth, tracks commit type distribution, identifies hotspots, calculates focus score, and saves JSON snapshots for week-over-week trend comparison.
-
-## Problem It Solves
-
-Engineering teams ship without understanding their own velocity patterns. This skill answers: How much did we ship? What hours are most productive? Are we fixing fast or building well? Is test coverage improving? It provides concrete metrics anchored in commits, not feelings — enabling data-driven planning and habit formation.
-
-## How to Use
-
-1. **Run weekly** — default is last 7 days
-2. **Optional arguments:**
-   - `/mirror` — last 7 days (default)
-   - `/mirror 24h` — last 24 hours
-   - `/mirror 14d` — last 14 days
-   - `/mirror 30d` — last 30 days
-   - `/mirror compare` — compare current vs prior period
-3. **Review 12 steps:**
-   - Gather raw git data (parallel queries)
-   - Compute metrics table
-   - Commit time distribution histogram
-   - Work session detection (45-min gaps)
-   - Commit type breakdown (feat/fix/refactor)
-   - Hotspot analysis (top 10 files)
-   - Focus score + ship of the week
-   - Week-over-week trends (if 14d+)
-   - Streak tracking
-   - Load/save history for comparison
-   - Write narrative (wins, improvements, habits)
-4. **Save JSON** — `.context/retros/YYYY-MM-DD-N.json` for trend tracking
-
-**Example:**
-```
-/mirror
-# Output:
-# - Week of Mar 1: 47 commits, 3.2k LOC, 38% tests, 12 PRs
-# - Peak hour: 10pm, 14 sessions detected, 5 deep sessions
-# - Test ratio ↑19pp vs last week, fix ratio ↓24pp (improving)
-# - Streak: 47 consecutive days
-# - Top 3 wins, 3 improvements, 3 habits for next week
-```
-
-## Requirements
-
-- OpenClaw installed
-- Git repository with origin/main
-- `.context/retros/` directory (auto-created)
-
-
-## One-Click Install
-
-### Option 1: GitHub Release (Recommended)
-```bash
-curl -L https://github.com/NovaCaliforniaLabs/mirror-skill/releases/latest/download/mirror-skill.zip -o mirror.zip
-unzip mirror.zip -d ~/.openclaw/workspace/skills/
-rm mirror.zip
-```
-
-### Option 2: ClawMart Download
-After purchase on shopclawmart.com, download the package and extract to ~/.openclaw/workspace/skills/
-
-## Quality Checklist
-- ✅ SKILL.md complete with usage docs
-- ✅ All scripts functional (bin/*.sh)
-- ✅ Templates included (templates/)
-- ✅ Examples provided (examples/)
-- ✅ Attribution verified
-- ✅ Tested on macOS Apple Silicon
-
-
-## Pricing
-
-Free — open source skill.
+[![OpenClaw Skill](https://img.shields.io/badge/OpenClaw-Skill-blue)](https://openclaw.ai)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Free on ClawMart](https://img.shields.io/badge/ClawMart-Free-success)](https://www.shopclawmart.com/listings/gstack-retro-acc478d9)
 
 ---
 
-*By Nova California Labs*
+## What It Does
+
+Mirror analyzes your git commits, detects work patterns, and tracks shipping velocity over time — so you actually know how your team works, not just how you *think* it works.
+
+**Key metrics:**
+- 📊 Velocity trends (7d, 14d, 30d comparisons)
+- ⏰ Commit time distribution (when do you actually ship?)
+- 🔥 Hotspot analysis (what files change most?)
+- 🎯 Focus score (deep work vs. context switching)
+- 📈 Week-over-week deltas (improving or stagnating?)
+
+---
+
+## Why It Matters
+
+Most teams ship on intuition. "We've been productive lately" — but *how* productive? *What* patterns? *Which* habits?
+
+Mirror replaces feelings with data:
+
+| Question | Mirror Answers |
+|----------|----------------|
+| "How much did we ship?" | Commits, LOC, PR counts |
+| "When are we most productive?" | Hour-by-hour distribution |
+| "Are we fixing or building?" | feat/fix/refactor ratios |
+| "Is test coverage improving?" | Test file trends |
+| "What's eating our time?" | Hotspot analysis |
+
+---
+
+## Installation
+
+### Option 1: ClawMart (Recommended)
+```
+Visit: https://www.shopclawmart.com/listings/gstack-retro-acc478d9
+```
+
+### Option 2: Manual
+```bash
+git clone https://github.com/NovaCaliforniaLabs/mirror-skill.git
+cp -r mirror-skill ~/.openclaw/workspace/skills/mirror
+```
+
+---
+
+## Usage
+
+```
+/mirror          # Last 7 days (default)
+/mirror 24h      # Last 24 hours
+/mirror 14d      # Last 14 days
+/mirror 30d      # Last 30 days
+/mirror compare   # Week-over-week comparison
+```
+
+---
+
+## How It Works
+
+1. **Gathers raw git data** — commits, timestamps, file changes, PR numbers
+2. **Computes velocity metrics** — commits/day, LOC trends, session counts
+3. **Detects work sessions** — 45-min gap threshold for "deep work" blocks
+4. **Identifies hotspots** — top 10 most-changed files (refactor candidates?)
+5. **Calculates focus score** — are you shipping or context-switching?
+6. **Saves snapshots** — JSON history for trend comparison
+
+---
+
+## Example Output
+
+```
+📊 Velocity Report (Last 7 Days)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Commits: 47 | Files: 89 | +2,341/-891 LOC
+Sessions: 12 deep work blocks (avg 2.3h)
+Focus Score: 7.2/10
+
+🔥 Top Hotspots:
+  src/api/handlers.ts (23 changes)
+  tests/integration/* (18 changes)
+
+📈 Compared to Prior Week:
+  Commits: +12%
+  Focus: +0.8
+  Refactor ratio: improving
+```
+
+---
+
+## Philosophy
+
+**From Garry Tan's gstack workflow.** Adapted for AI agents with persistent memory and trend tracking.
+
+---
+
+## Contributing
+
+PRs welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+---
+
+## License
+
+MIT — free for personal and commercial use.
+
+---
+
+**[Get it free on ClawMart →](https://www.shopclawmart.com/listings/gstack-retro-acc478d9)**
